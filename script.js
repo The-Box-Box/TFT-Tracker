@@ -1,14 +1,10 @@
-// RGAPI-2f2fa79d-758c-4354-a7f8-57f32153be41
-
 const searchBtn = document.getElementById("username-search-button");
 const searchInput = document.getElementById("username-search");
-const apiKey = "?api_key=RGAPI-2f2fa79d-758c-4354-a7f8-57f32153be41";
-const userNameAPI =
-  "https://oc1.api.riotgames.com/tft/summoner/v1/summoners/by-name/";
+const searchApi = "https://tft-data-backend.herokuapp.com/search/";
 
 searchInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    getPuuid();
+    getMatches();
   }
 });
 
@@ -19,12 +15,12 @@ function updateHeading(text) {
   heading.innerText = text;
 }
 
-async function getPuuid() {
-  console.log(userNameAPI + searchInput.value + apiKey);
+async function getMatches() {
   try {
-    const pulledData = await fetch(userNameAPI + searchInput.value + apiKey);
+    const pulledData = await fetch(searchApi + searchInput.value);
     const data = await pulledData.json();
-    updateHeading(data["puuid"]);
+    console.log(data);
+    updateHeading("pulled");
   } catch (error) {
     console.error(`Error Received: ${error.message}`);
   }
