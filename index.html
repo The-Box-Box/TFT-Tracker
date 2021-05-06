@@ -1,315 +1,182 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <title>TFT-Tracker</title>
-  </head>
 
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <a href="">
-            <li>Home</li>
-          </a>
-          <a href="">
-            <li>Champions</li>
-          </a>
-          <a href="">
-            <li>Items</li>
-          </a>
-        </ul>
-      </nav>
-    </header>
-    <main class="container">
-      <!-- <form action=""> -->
-        <input
-          type="search"
-          id="search"
-          placeholder="Summoner name"
-          autofocus
-        /><input type="submit" value="Search" id="submit" />
-      <!-- </form> -->
-      <h1>UserName - Here</h1>
-      <p></p>
-      <div id="matches-container">
-        <div class="match">
-          <header class="match-header">
-            <h2 id="date">01/01/2021</h2>
-            <h1 id="position">8th</h1>
-            <h2 id="game-length">40 min</h2>
-          </header>
-          <main>
-            <div class="traits">
-              <img
-                class="trait-img"
-                src="https://files-for-hackathon.netlify.app/traits/abomination.svg"
-                alt=""
-              />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet" />
+  <title>TFT-Tracker</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <a href="">
+          <li>Home</li>
+        </a>
+        <a href="">
+          <li>Champions</li>
+        </a>
+        <a href="">
+          <li>Items</li>
+        </a>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <form action="" id="search-form">
+      <input type="search" id="search" placeholder="Summoner name" autofocus /><input type="submit" value="Search"
+        id="submit" />
+    </form>
+    <h1 class="hidden" id="username-header">UserName - Here</h1>
+    <div id="matches-container">
+      <div class="match">
+        <header class="match-header">
+          <h2 id="date">01/01/2021</h2>
+          <h1 id="position">8th</h1>
+          <h2 id="game-length">40 min</h2>
+        </header>
+        <main>
+          <div class="traits">
+            <img class="trait-img" src="https://files-for-hackathon.netlify.app/traits/abomination.svg" alt="" />
+          </div>
+          <div class="champions">
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
+                alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/19.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/17.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/37.png" alt="" />
+                </li>
+              </ul>
             </div>
-            <div class="champions">
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/19.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/17.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/37.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/19.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/17.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/37.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/19.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/17.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/37.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/19.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/17.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/37.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/19.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/17.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/37.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Nunu.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/01.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/02.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/11.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Ryze.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/01.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/02.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/11.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
-              <div class="champ">
-                <h6>2</h6>
-                <img
-                  class="champion-img"
-                  src="https://files-for-hackathon.netlify.app/champions/TFT5_Brand.png"
-                  alt=""
-                />
-                <ul class="items-list">
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/01.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/02.png"
-                      alt=""
-                    />
-                  </li>
-                  <li class="item">
-                    <img
-                      class="item-img"
-                      src="https://files-for-hackathon.netlify.app/items/11.png"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
+                alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/19.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/17.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/37.png" alt="" />
+                </li>
+              </ul>
             </div>
-          </main>
-        </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
+                alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/19.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/17.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/37.png" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
+                alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/19.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/17.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/37.png" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Kalista.png"
+                alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/19.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/17.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/37.png" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Nunu.png" alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/01.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/02.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/11.png" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Ryze.png" alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/01.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/02.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/11.png" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="champ">
+              <h6>2</h6>
+              <img class="champion-img" src="https://files-for-hackathon.netlify.app/champions/TFT5_Brand.png" alt="" />
+              <ul class="items-list">
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/01.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/02.png" alt="" />
+                </li>
+                <li class="item">
+                  <img class="item-img" src="https://files-for-hackathon.netlify.app/items/11.png" alt="" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
       </div>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
 </html>
