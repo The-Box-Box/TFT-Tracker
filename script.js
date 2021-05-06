@@ -4,16 +4,17 @@ const searchBtn = document.getElementById("username-search-button");
 const searchInput = document.getElementById("username-search");
 const searchApi = "https://tft-data-backend.herokuapp.com/search/";
 const usernameApi = "https://tft-data-backend.herokuapp.com/username/";
+const puuidApi = "https://tft-data-backend.herokuapp.com/puuid/";
+
 
 searchInput.addEventListener("keydown", async (event) => {
   if (event.key === "Enter") {
     let gameData = await getMatches();
-    await displayData(gameData[0]);
-    let ppuid = await gameData[0].info.participants[4].puuid;
-    let name = await getUsername(ppuid);
-    console.log(name);
+    let retrievedData = await retrieveData(gameData[0]);
+    await displayData(retrievedData)
 
-    updateHeading(name);
+    console.log(searchInput.value);
+    updateHeading(searchInput.value);
   }
 });
 
@@ -30,11 +31,6 @@ async function getUsername(puuid) {
   }
 }
 
-function updateHeading(text) {
-  const heading = document.querySelector("h1");
-  heading.innerText = text;
-}
-
 async function getMatches() {
   try {
     const pulledData = await fetch(searchApi + searchInput.value);
@@ -46,4 +42,28 @@ async function getMatches() {
   }
 }
 
-async function displayData() {}
+function updateHeading(text) {
+  const heading = document.querySelector("h1");
+  heading.innerText = text;
+}
+
+async function retrieveData(text) {
+  const today = new Date();
+
+  const data = {}
+  text.info.participants.forEach(async (player) => {
+    let username = await getUsername(player.puuid);
+    if (username.toUpperCase() === searchInput.value.toUpperCase()) {
+      data.position = player.placement
+    }
+  });
+  data.gametime = today - Date(text.info.game_datetime / 1000)
+  data.gamelength = text.info.game_length
+
+  return data
+}
+
+async function displayData(data) {
+  const paragraph = document.querySelector("p");
+  paragraph.innerHTML = JSON.stringify(data)
+}
