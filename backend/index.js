@@ -8,6 +8,7 @@ const userNameAPI =
 
 // node set up
 const express = require("express");
+const { response } = require("express");
 const app = express();
 const port = 3000;
 
@@ -23,7 +24,9 @@ app.get("/search/:userName", async (req, res) => {
   const name = req.params.userName;
   const puuid = await getPuuid(name);
   const matchHistory = await getMatchHistory(puuid);
-  console.log(matchHistory);
+  const matchData = await getMatchData(matchHistory)
+
+  await res.send(matchData)
 });
 
 async function getPuuid(username) {
@@ -36,11 +39,20 @@ async function getPuuid(username) {
 async function getMatchHistory(puuid) {
   const matchHistoryApi =
     "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/";
-  const amount = "/ids?count=20";
+  const amount = "/ids?count=5";
   let response = await fetch(matchHistoryApi + puuid + amount + "&" + apiKey);
   let data = await response.json();
 
   return data;
 }
 
-async function getMatchData()
+async function getMatchData(matches) {
+  const matchDataApi = "https://americas.api.riotgames.com/tft/match/v1/matches/";
+
+  const matchPrmoises = matches.map(match => fetch(matchDataApi + match + "?" + apiKey));
+  const responses = await Promise.all(matchPrmoises);
+  const rs = responses.map(r => r.json());
+  const data = await Promise.all(rs);
+  
+  return data
+}
