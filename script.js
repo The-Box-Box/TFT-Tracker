@@ -7,13 +7,16 @@ const searchApi = "https://tft-data-backend.herokuapp.com/search/";
 const usernameApi = "https://tft-data-backend.herokuapp.com/username/";
 // converts the puuid to username
 const puuidApi = "https://tft-data-backend.herokuapp.com/puuid/";
+// trait JSON static file
+const traitAPI = "https://files-for-hackathon.netlify.app/traits.json";
 
 // on form submit prevents the reload and pulls the user data from the searched params
 userSearch.addEventListener("submit", async (event) => {
   event.preventDefault();
   let gameData = await getMatches();
-  let retrievedData = await retrieveData(gameData[0]);
+  let retrievedData = await createObjectFromData(gameData[0]);
   await displayData(retrievedData);
+  await createMatchDiv(retrievedData);
   console.log(searchInput.value);
 });
 
@@ -40,7 +43,7 @@ async function getMatches() {
   }
 }
 
-async function retrieveData(text) {
+async function createObjectFromData(text) {
   const today = new Date();
   const info = text.info;
   const players = info.participants;
@@ -54,6 +57,8 @@ async function retrieveData(text) {
         data.position = player.placement;
         data.traits = player.traits;
         data.units = player.units;
+        data.username = username;
+        setUsernameHeader(username);
       }
     })
   );
@@ -74,10 +79,6 @@ async function retrieveData(text) {
 
 // needs to be changed to create new element using the data produced by retrieved data
 async function displayData(data) {
-  const paragraph = document.querySelector("p");
-  paragraph.innerHTML = JSON.stringify(data);
-  console.log(data);
-
   const position = document.getElementById("position");
   const date = document.getElementById("date");
   const gameLength = document.getElementById("game-length");
@@ -85,4 +86,38 @@ async function displayData(data) {
   date.innerHTML = "Played " + data.gameTime;
   position.innerHTML = "Pos - " + data.position;
   gameLength.innerHTML = "Time in-game: " + data.gameLength;
+}
+
+// Sets the header and unhides it
+function setUsernameHeader(username) {
+  const usernameHeader = document.getElementById("username-header");
+  usernameHeader.textContent = username;
+  usernameHeader.classList.remove("hidden");
+}
+
+function createMatchDiv(data) {
+  // get main match container
+  const matchesContainer = document.getElementById("matches-container");
+  // create div to contain individual match data
+  const matchDiv = document.createElement("div");
+  matchDiv.classList.add("match");
+  // create header to attach date, position and game length elements.
+  const matchHeader = document.createElement("header");
+  matchHeader.classList.add("match-header");
+  matchHeader.innerHTML = `
+  <h2 id="date">Played ${data.gameTime}</h2>
+  <h1 id="position">Pos - ${data.position}</h1>
+  <h2 id="game-length">Time in-Game: ${data.gameLength}</h2>`;
+  // attach header to match div
+  matchDiv.appendChild(matchHeader);
+  // create main container to keep all data regarding champions used, items and traits
+  const main = document.createElement("main");
+
+  data.traits.forEach(async (trait) => {
+    if (trait.style != 0) {
+      console.log(
+        `Trait: ${trait.name} - Style:${trait.style} - Num: ${trait.num_units}`
+      );
+    }
+  });
 }

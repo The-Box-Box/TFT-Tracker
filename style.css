@@ -73,6 +73,10 @@ form {
   width: 360px;
 }
 
+.hidden {
+  display: none;
+}
+
 #search,
 #submit {
   height: 2rem;
@@ -93,7 +97,7 @@ form {
   box-shadow: none;
 }
 
-#submit:hover{
+#submit:hover {
   background-color: turquoise;
   color: white;
   border: none;
@@ -189,33 +193,36 @@ form {
 }
 
 @media screen and (min-width: 640px) {
-  form, #matches-container, .match {
+  form,
+  #matches-container,
+  .match {
     width: 80%;
     max-width: 60rem;
   }
-  
-  #search, #submit {
+
+  #search,
+  #submit {
     height: 4rem;
     font-size: 2rem;
   }
 
-  .trait-img{
+  .trait-img {
     height: 40px;
     width: 40px;
   }
-  .champions{
+  .champions {
     width: 100%;
   }
   .champion-img {
     height: 63px;
   }
-  .item-img{
+  .item-img {
     height: 21px;
   }
   .match > main {
     padding-bottom: 0.5rem;
   }
-  h6{
+  h6 {
     font-size: 0.75rem;
   }
 }
