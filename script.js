@@ -32,22 +32,11 @@ async function getUsername(puuid) {
   }
 }
 
-<<<<<<< HEAD
-=======
 // returns an array of 9 matches the user has previously played
->>>>>>> development
 async function getMatches() {
   try {
     const pulledData = await fetch(searchApi + searchInput.value);
     const data = await pulledData.json();
-<<<<<<< HEAD
-    console.log(data);
-    updateHeading("pulled");
-  } catch (error) {
-    console.error(`Error Received: ${error.message}`);
-  }
-}
-=======
     return data;
   } catch (error) {
     console.error(`Error Received: ${error.message}`);
@@ -132,4 +121,3 @@ function createMatchDiv(data) {
     }
   });
 }
->>>>>>> development
