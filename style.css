@@ -81,6 +81,7 @@ form{
 #search {
   width: 80%;
   border-width: 1px 0px 1px 1px;
+  text-indent: 1rem;
 }
 
 #submit{
@@ -89,6 +90,12 @@ form{
   border-width: 1px;
   padding: 0 0.25rem;
   box-shadow: none;
+}
+
+#submit:hover{
+  background-color: turquoise;
+  color: white;
+  border: none;
 }
 
 /* matches */
@@ -180,12 +187,33 @@ form{
 }
 
 @media screen and (min-width: 640px) {
-  form{
+  form, #matches-container, .match {
     width: 80%;
     max-width: 60rem;
   }
+  
   #search, #submit {
     height: 4rem;
     font-size: 2rem;
+  }
+
+  .trait-img{
+    height: 40px;
+    width: 40px;
+  }
+  .champions{
+    width: 100%;
+  }
+  .champion-img {
+    height: 63px;
+  }
+  .item-img{
+    height: 21px;
+  }
+  .match > main {
+    padding-bottom: 0.5rem;
+  }
+  h6{
+    font-size: 0.75rem;
   }
 }
