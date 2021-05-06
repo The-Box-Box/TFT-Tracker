@@ -10,7 +10,7 @@ const userNameAPI =
 const express = require("express");
 const { response } = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send(`${req} is what you put.`);
@@ -24,9 +24,10 @@ app.get("/search/:userName", async (req, res) => {
   const name = req.params.userName;
   const puuid = await getPuuid(name);
   const matchHistory = await getMatchHistory(puuid);
-  const matchData = await getMatchData(matchHistory)
-
-  await res.send(matchData)
+  const pages = createPagination(matchHistory);
+  const matchData = await getMatchData(pages());
+  // const matchData2 = await getMatchData(pages());
+  await res.send(matchData);
 });
 
 async function getPuuid(username) {
@@ -39,7 +40,7 @@ async function getPuuid(username) {
 async function getMatchHistory(puuid) {
   const matchHistoryApi =
     "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/";
-  const amount = "/ids?count=5";
+  const amount = "/ids?count=100";
   let response = await fetch(matchHistoryApi + puuid + amount + "&" + apiKey);
   let data = await response.json();
 
@@ -47,12 +48,24 @@ async function getMatchHistory(puuid) {
 }
 
 async function getMatchData(matches) {
-  const matchDataApi = "https://americas.api.riotgames.com/tft/match/v1/matches/";
+  const matchDataApi =
+    "https://americas.api.riotgames.com/tft/match/v1/matches/";
 
-  const matchPrmoises = matches.map(match => fetch(matchDataApi + match + "?" + apiKey));
-  const responses = await Promise.all(matchPrmoises);
-  const rs = responses.map(r => r.json());
+  const matchPromises = matches.map((match) =>
+    fetch(matchDataApi + match + "?" + apiKey)
+  );
+  const responses = await Promise.all(matchPromises);
+  const rs = responses.map((r) => r.json());
   const data = await Promise.all(rs);
-  
-  return data
+
+  return data;
+}
+
+function createPagination(matches) {
+  let index = 0;
+  return function () {
+    let subArr = matches.slice(index, index + 9);
+    index += 5;
+    return subArr;
+  };
 }
