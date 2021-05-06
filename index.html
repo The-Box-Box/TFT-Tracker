@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +13,7 @@
     />
     <title>TFT-Tracker</title>
   </head>
+
   <body>
     <header>
       <nav>
@@ -29,19 +31,22 @@
       </nav>
     </header>
     <main class="container">
-      <form action="">
-        <input type="search" id="search" /><input
-          type="submit"
-          value="Search"
-          id="submit"
-        />
-      </form>
+      <!-- <form action=""> -->
+        <input
+          type="search"
+          id="search"
+          placeholder="Summoner name"
+          autofocus
+        /><input type="submit" value="Search" id="submit" />
+      <!-- </form> -->
+      <h1>UserName - Here</h1>
+      <p></p>
       <div id="matches-container">
         <div class="match">
           <header class="match-header">
-            <h2>01/01/2021</h2>
-            <h1>8th</h1>
-            <h2>40 min</h2>
+            <h2 id="date">01/01/2021</h2>
+            <h1 id="position">8th</h1>
+            <h2 id="game-length">40 min</h2>
           </header>
           <main>
             <div class="traits">
