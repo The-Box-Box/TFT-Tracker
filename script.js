@@ -35,7 +35,6 @@ async function getMatches() {
   try {
     const pulledData = await fetch(searchApi + searchInput.value);
     const data = await pulledData.json();
-    // console.log(data);
     return data;
   } catch (error) {
     console.error(`Error Received: ${error.message}`);
@@ -49,16 +48,24 @@ function updateHeading(text) {
 
 async function retrieveData(text) {
   const today = new Date();
-
+  const info = text.info
+  const players = info.participants;
   const data = {}
-  text.info.participants.forEach(async (player) => {
-    let username = await getUsername(player.puuid);
+
+  // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+  await Promise.all(players.map (async (player) => {
+    const username = await getUsername(player.puuid);
     if (username.toUpperCase() === searchInput.value.toUpperCase()) {
       data.position = player.placement
     }
-  });
-  data.gametime = today - Date(text.info.game_datetime / 1000)
-  data.gamelength = text.info.game_length
+  }))
+
+  let playedOn = new Date(info.game_datetime)
+  let msInDay = 24 * 60 * 60 * 1000
+  data.gameTime = Math.floor((today - playedOn)/msInDay) + " days ago"
+
+  data.gameLength = Math.floor(info.game_length / 60) + ":" + Math.floor(info.game_length % 60)
+  data.gameType = info.tft_game_type
 
   return data
 }
@@ -66,4 +73,5 @@ async function retrieveData(text) {
 async function displayData(data) {
   const paragraph = document.querySelector("p");
   paragraph.innerHTML = JSON.stringify(data)
+  console.log(data)
 }
