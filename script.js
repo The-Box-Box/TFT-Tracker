@@ -1,23 +1,26 @@
+
 // RGAPI-2f2fa79d-758c-4354-a7f8-57f32153be41
 
 const searchBtn = document.getElementById("submit");
 const searchInput = document.getElementById("search");
+
 const searchApi = "https://tft-data-backend.herokuapp.com/search/";
 const usernameApi = "https://tft-data-backend.herokuapp.com/username/";
 const puuidApi = "https://tft-data-backend.herokuapp.com/puuid/";
 
 searchInput.addEventListener("keydown", async (event) => {
   if (event.key === "Enter") {
+    toggleLoading();
     let gameData = await getMatches();
+
     let retrievedData = await retrieveData(gameData[0]);
     await displayData(retrievedData);
 
     console.log(searchInput.value);
     updateHeading(searchInput.value);
+
   }
 });
-
-searchBtn.addEventListener("click", () => {});
 
 async function getUsername(puuid) {
   try {

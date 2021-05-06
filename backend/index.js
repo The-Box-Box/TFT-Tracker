@@ -1,6 +1,5 @@
 // sets up node fetch
 const fetch = require("node-fetch");
-
 // data required for API
 const apiKey = "api_key=RGAPI-2f2fa79d-758c-4354-a7f8-57f32153be41";
 const userNameAPI =
@@ -12,8 +11,32 @@ const { response } = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(function (req, res, next) {
+  // Website you wish to allow to connect
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  // Request methods you wish to allow
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+
+  // Request headers you wish to allow
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader("Access-Control-Allow-Credentials", true);
+
+  // Pass to next layer of middleware
+  next();
+});
+
 app.get("/", (req, res) => {
-  res.send(`${req} is what you put.`);
+  res.send(`You should not be here`);
 });
 
 app.listen(port, () => {
@@ -29,6 +52,30 @@ app.get("/search/:userName", async (req, res) => {
   // const matchData2 = await getMatchData(pages());
   await res.send(matchData);
 });
+
+app.get("/username/:puuid", async (req, res) => {
+  const puuid = req.params.puuid;
+  const name = await getUsername(puuid);
+  const username = await { username: name };
+  await res.send(username);
+});
+
+app.get("/puuid/:username", async (req, res) => {
+  const username = req.params.username;
+  const gotPuuid = await getPuuid(username);
+  const puuid = await { puuid: gotPuuid };
+
+  await res.send(puuid);
+});
+
+async function getUsername(puuid) {
+  let response = await fetch(
+    `https://oc1.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/${puuid}?${apiKey}`
+  );
+  let data = await response.json();
+
+  return data.name;
+}
 
 async function getPuuid(username) {
   let response = await fetch(userNameAPI + username + "?" + apiKey);
