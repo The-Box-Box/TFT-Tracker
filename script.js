@@ -8,6 +8,7 @@ const usernameApi = "https://tft-data-backend.herokuapp.com/username/";
 searchInput.addEventListener("keydown", async (event) => {
   if (event.key === "Enter") {
     let gameData = await getMatches();
+    await displayData(gameData[0]);
     let ppuid = await gameData[0].info.participants[4].puuid;
     let name = await getUsername(ppuid);
     console.log(name);
@@ -15,6 +16,8 @@ searchInput.addEventListener("keydown", async (event) => {
     updateHeading(name);
   }
 });
+
+searchBtn.addEventListener("click", () => {});
 
 async function getUsername(puuid) {
   try {
@@ -26,8 +29,6 @@ async function getUsername(puuid) {
     console.error(`Error Received: ${error.message}`);
   }
 }
-
-searchBtn.addEventListener("click", () => {});
 
 function updateHeading(text) {
   const heading = document.querySelector("h1");
@@ -44,3 +45,5 @@ async function getMatches() {
     console.error(`Error Received: ${error.message}`);
   }
 }
+
+async function displayData() {}
