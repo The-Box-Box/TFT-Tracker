@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+header {
+  height: 3rem;
+}
+
+/* navigation */
+nav {
+  font-size: large;
+  padding-top: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: black;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul {
+  width: 360px;
+  margin: auto;
+}
+
+nav > ul > * + * {
+  margin-left: 1rem;
+}
