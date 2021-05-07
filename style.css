@@ -57,6 +57,16 @@ nav > ul > * + * {
   margin-left: 1rem;
 }
 
+.win {
+  background-color: #05af13;
+  color: rgb(255, 255, 255);
+}
+
+.loss {
+  background-color: #aa0f0f;
+  color: rgb(255, 255, 255);
+}
+
 /* Main */
 .container {
   min-height: calc(100vh - 3rem);
@@ -109,6 +119,10 @@ form {
   border: 1px solid lightgrey;
 }
 
+#matches-container > * + * {
+  margin-top: 1rem;
+}
+
 .match-header {
   display: flex;
   border-bottom: 1px solid lightgray;
@@ -149,10 +163,25 @@ form {
 .trait-img {
   height: 25px;
   width: 25px;
-  background-color: silver;
   padding: 3px;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.bronze {
+  background-color: #886142;
+}
+
+.silver {
+  background-color: silver;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.diamond {
+  background-image: linear-gradient(#d5dbfa, #86b1b9);
 }
 
 /* champions */
