@@ -1,17 +1,42 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>TFT-Tracker</title>
-  </head>
-  <body>
-    <h1>UserName - Here</h1>
-    <h2>FirstGameTime - Here</h2>
-    <input id="username-search" placeholder="username" />
-    <button id="username-search-button">Search</button>
-    <script src="script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet" />
+  <title>TFT-Tracker</title>
+</head>
+
+<body>
+  <header>
+    <!-- <nav>
+      <ul>
+        <a href="">
+          <li>Home</li>
+        </a>
+        <a href="">
+          <li>Champions</li>
+        </a>
+        <a href="">
+          <li>Items</li>
+        </a>
+      </ul>
+    </nav> -->
+  </header>
+  <main class="container">
+    <form action="" id="search-form">
+      <input type="search" id="search" placeholder="Summoner name" autofocus /><input type="submit" value="Search"
+        id="submit" />
+    </form>
+    <h1 class="hidden" id="username-header">UserName - Here</h1>
+    <div id="matches-container"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
 </html>

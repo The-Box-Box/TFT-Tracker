@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+h6 {
+  margin: 0;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+header {
+  height: 3rem;
+}
+
+/* navigation */
+nav {
+  font-size: large;
+  padding-top: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: black;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul {
+  width: 360px;
+  margin: auto;
+}
+
+nav > ul > * + * {
+  margin-left: 1rem;
+}
+
+.win {
+  background-color: #05af13;
+  color: rgb(255, 255, 255);
+}
+
+.loss {
+  background-color: #aa0f0f;
+  color: rgb(255, 255, 255);
+}
+
+/* Main */
+.container {
+  min-height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > * + * {
+  margin-top: 0.75rem;
+}
+/* form */
+form {
+  width: 360px;
+}
+
+.hidden {
+  display: none;
+}
+
+#search,
+#submit {
+  height: 2rem;
+  border: solid lightgray;
+}
+
+#search {
+  width: 80%;
+  border-width: 1px 0px 1px 1px;
+  text-indent: 1rem;
+}
+
+#submit {
+  width: 20%;
+  background-color: white;
+  border-width: 1px;
+  padding: 0 0.25rem;
+  box-shadow: none;
+}
+
+#submit:hover {
+  background-color: turquoise;
+  color: white;
+  border: none;
+}
+
+/* matches */
+.match {
+  width: 22.5rem;
+  border: 1px solid lightgrey;
+}
+
+#matches-container > * + * {
+  margin-top: 1rem;
+}
+
+.match-header {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  justify-content: space-between;
+}
+
+.match-header > * {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match > main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.6rem 0;
+  padding: 0 0.25rem;
+}
+
+.champions,
+.traits {
+  display: flex;
+  align-items: center;
+}
+
+/* traits */
+.traits {
+  margin-bottom: 0.5rem;
+}
+
+.traits > * + * {
+  margin-left: 2px;
+}
+
+.trait-img {
+  height: 25px;
+  width: 25px;
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.bronze {
+  background-color: #886142;
+}
+
+.silver {
+  background-color: silver;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.diamond {
+  background-image: linear-gradient(#d5dbfa, #86b1b9);
+}
+
+/* champions */
+.champions {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.champions > * + * {
+  margin-left: 2px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.champion-img {
+  height: 45px;
+}
+
+/* items */
+.items-list {
+  list-style: none;
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  height: 15px;
+}
+
+.item-img {
+  height: 15px;
+}
+
+@media screen and (min-width: 640px) {
+  form,
+  #matches-container,
+  .match {
+    width: 80%;
+    max-width: 60rem;
+  }
+
+  #search,
+  #submit {
+    height: 4rem;
+    font-size: 2rem;
+  }
+
+  .trait-img {
+    height: 40px;
+    width: 40px;
+  }
+  .champions {
+    width: 100%;
+  }
+  .champion-img {
+    height: 63px;
+  }
+  .item-img {
+    height: 21px;
+  }
+  .match > main {
+    padding-bottom: 0.5rem;
+  }
+  h6 {
+    font-size: 0.75rem;
+  }
+}
