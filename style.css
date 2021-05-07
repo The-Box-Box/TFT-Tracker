@@ -1,9 +1,9 @@
 * {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-h1{
+h1 {
   font-size: 1.25rem;
   margin: 0;
 }
@@ -12,7 +12,7 @@ h2 {
   font-size: 1rem;
 }
 
-h6{
+h6 {
   margin: 0;
   text-align: center;
 }
@@ -33,11 +33,11 @@ nav {
   padding-top: 1rem;
 }
 
-nav a{
+nav a {
   text-decoration: none;
 }
 
-nav a:visited{
+nav a:visited {
   color: black;
 }
 
@@ -57,6 +57,16 @@ nav > ul > * + * {
   margin-left: 1rem;
 }
 
+.win {
+  background-color: #05af13;
+  color: rgb(255, 255, 255);
+}
+
+.loss {
+  background-color: #aa0f0f;
+  color: rgb(255, 255, 255);
+}
+
 /* Main */
 .container {
   min-height: calc(100vh - 3rem);
@@ -69,11 +79,16 @@ nav > ul > * + * {
   margin-top: 0.75rem;
 }
 /* form */
-form{
+form {
   width: 360px;
 }
 
-#search, #submit {
+.hidden {
+  display: none;
+}
+
+#search,
+#submit {
   height: 2rem;
   border: solid lightgray;
 }
@@ -84,7 +99,7 @@ form{
   text-indent: 1rem;
 }
 
-#submit{
+#submit {
   width: 20%;
   background-color: white;
   border-width: 1px;
@@ -92,16 +107,20 @@ form{
   box-shadow: none;
 }
 
-#submit:hover{
+#submit:hover {
   background-color: turquoise;
   color: white;
   border: none;
 }
 
 /* matches */
-.match{
+.match {
   width: 22.5rem;
   border: 1px solid lightgrey;
+}
+
+#matches-container > * + * {
+  margin-top: 1rem;
 }
 
 .match-header {
@@ -126,7 +145,8 @@ form{
   padding: 0 0.25rem;
 }
 
-.champions, .traits {
+.champions,
+.traits {
   display: flex;
   align-items: center;
 }
@@ -143,10 +163,25 @@ form{
 .trait-img {
   height: 25px;
   width: 25px;
-  background-color: silver;
   padding: 3px;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.bronze {
+  background-color: #886142;
+}
+
+.silver {
+  background-color: silver;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.diamond {
+  background-image: linear-gradient(#d5dbfa, #86b1b9);
 }
 
 /* champions */
@@ -178,7 +213,7 @@ form{
   padding: 0;
 }
 
-.item{
+.item {
   height: 15px;
 }
 
@@ -187,33 +222,36 @@ form{
 }
 
 @media screen and (min-width: 640px) {
-  form, #matches-container, .match {
+  form,
+  #matches-container,
+  .match {
     width: 80%;
     max-width: 60rem;
   }
-  
-  #search, #submit {
+
+  #search,
+  #submit {
     height: 4rem;
     font-size: 2rem;
   }
 
-  .trait-img{
+  .trait-img {
     height: 40px;
     width: 40px;
   }
-  .champions{
+  .champions {
     width: 100%;
   }
   .champion-img {
     height: 63px;
   }
-  .item-img{
+  .item-img {
     height: 21px;
   }
   .match > main {
     padding-bottom: 0.5rem;
   }
-  h6{
+  h6 {
     font-size: 0.75rem;
   }
 }
